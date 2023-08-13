@@ -1,0 +1,17 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntuhsl(180, 100%, 50%) ntarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: grey;
+  color: black;
+}
+.image {
+  border-radius: 10px;
+  border-color: brown;
+  border-style: double;
+}
