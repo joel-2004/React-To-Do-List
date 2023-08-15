@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 const ToDo = () => {
     const [title, setTitle] = useState("");
     const [toDos, setToDos] = useState([]);
+    const [isTitle, setIsTitle] = useState(false);
     const click = () => {
         if (title !== "") {
             const toDos = { id: new Date().getTime().toString(), title };
@@ -12,9 +13,10 @@ const ToDo = () => {
                 return [...e, toDos];
             })
             setTitle("");
+            setIsTitle(false);
         }
         else {
-            alert("add something in to do");
+            setIsTitle(true);
         }
     }
     const dlt = (id) => {
@@ -22,22 +24,22 @@ const ToDo = () => {
         setToDos(fil);
     }
     return <div className="container-fluid text-center">
-        <h1>To do</h1>
+        {isTitle && <h4 className="bg-danger">Enter something</h4>}
+        <h2>To do List</h2>
         <div className="row">
             <div className="col-12 text-center">
                 <form>
-                    <h1>List</h1>
                     <input type="text" id="todo" name="todo" className="form-control-lg"
-                        value={title} onChange={(e) => { setTitle(e.target.value) }}></input>
+                        value={title} onChange={(e) => { setTitle(e.target.value) }} placeholder="Got something to do?"></input>
                     <button type="button" className="btn btn-primary mx-2" onClick={click}>Add</button>
                 </form>
                 <div className="col-12 text-center mt-2">
                     {toDos.map((e) => {
                         return (
                             <div key={e.id}>
-                                <h1>{e.title}
+                                <h2>{e.title}
                                     <button type="button" className="btn btn-info mx-3" onClick={() => dlt(e.id)}>Done</button>
-                                </h1>
+                                </h2>
 
                             </div>);
                     })}
