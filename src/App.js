@@ -1,4 +1,4 @@
-import Setup from "./tutorial/6-useReducer/setup/index"
+import Setup from "./basics/6_toDo"
 const App = () => {
     return <div>
         <Setup></Setup>
